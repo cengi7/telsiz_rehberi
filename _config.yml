@@ -3,8 +3,8 @@
 # Import the theme
 theme: jekyll-theme-chirpy
 
-# Web sayfasının dili (Türkçe için 'tr')
-lang: tr
+# Web sayfasının dili (Türkçe çevirilerin aktif olması için tr-TR olmalıdır)
+lang: tr-TR
 
 # Zaman dilimi
 timezone: Europe/Istanbul
