@@ -45,6 +45,10 @@ TYT UV-99 telsizinize ait orijinal üretici yazılımını Cloudflare R2 yüksek
 
 > 💾 **İndirme Linki:**  
 > [TYT UV-99 Customer Programming Software V1.08 (.exe)](https://indir.cengizkaya.net/UV99_20230909_V108.exe)
+> ### Orijinal Firmware (Aygıt Yazılımı)
+
+* ⚙️ **TYT UV-99 Güncelleme Firmware (2025.05.24 - vB91.38):**  
+  [TYT UV-99 Firmware vB91.38 İndir (.bin)](https://indir.cengizkaya.net/Eng_UV99_Upadat_20250524_B91.38.bin)
 > ### Alternatif Sürümler ve İndirme Bağlantıları
 
 * 📥 **TYT UV-99 CPS v1.04 (2022.10.24 Sürümü):**  
