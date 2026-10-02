@@ -9,143 +9,157 @@
   </p>
 </footer>
 
-<!-- Chirpy Tam Uyumlu Tema, Font ve Arşiv Düzeltme Kodu -->
+<!-- Temiz Tema, Font ve Kusursuz Arşiv Hizalama Kodu -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-  /* 1. TÜM METİNLERE INTER FONTU */
+  /* 1. INTER FONTU & İKON KORUMA */
   body, h1, h2, h3, h4, h5, h6, p, button, input, select, textarea, .post-title, .site-title, .nav-link, .title {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   }
 
-  /* 2. İKON SİSTEMİNİ KORUMA (FontAwesome) */
   i, .fa, .fas, .far, .fab, .fal, .fad, [class^="fa-"], [class*=" fa-"] {
     font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "FontAwesome" !important;
   }
 
-  /* 3. DİNAMİK TEMA DEĞİŞKENLERİ (CSS VARIABLES) */
-  
-  /* KOYU MOD (DARK MODE - saygiselim.dev) */
+  /* 2. KOYU MOD (DARK MODE - saygiselim.dev) */
   html[data-mode="dark"],
   html:not([data-mode="light"]) {
     --main-bg: #0b0d11;
-    --mask-bg: #12151c;
-    --main-border-color: #1e232d;
     --sidebar-bg: #0d0f14;
-    --sidebar-border-color: #1e232d;
     --card-bg: #12151c;
-    --card-header-bg: #161b22;
-    --tb-border-color: #1e232d;
-    --text-color: #c9d1d9;
-    --text-muted-color: #8b949e;
+    --border-color: #1e232d;
+    --text-main: #c9d1d9;
+    --text-muted: #8b949e;
     --heading-color: #f0f6fc;
-    --link-color: #38bdf8;
-    --nav-link-color: #9198a1;
-    --sidebar-active-color: #38bdf8;
-    --topbar-bg: #0b0d11;
-    --topbar-text-color: #f0f6fc;
-    --search-wrapper-bg: #12151c;
-    --search-wrapper-border-color: #1e232d;
-    --tag-bg: #161b22;
-    --tag-border: #30363d;
-    --timeline-color: #1e232d;
-    --timeline-node-bg: #38bdf8;
+    --accent-blue: #38bdf8;
+    --active-link-bg: #161b22;
   }
 
-  /* AÇIK MOD (LIGHT MODE - TAM BEYAZ) */
+  /* 3. AÇIK MOD (LIGHT MODE - TEMİZ BEYAZ & YÜKSEK KONTRAST) */
   html[data-mode="light"] {
     --main-bg: #ffffff;
-    --mask-bg: #ffffff;
-    --main-border-color: #e1e4e8;
     --sidebar-bg: #f6f8fa;
-    --sidebar-border-color: #e1e4e8;
     --card-bg: #ffffff;
-    --card-header-bg: #f6f8fa;
-    --tb-border-color: #e1e4e8;
-    --text-color: #24292f;
-    --text-muted-color: #57606a;
-    --heading-color: #1f2328;
-    --link-color: #0969da;
-    --nav-link-color: #57606a;
-    --sidebar-active-color: #0969da;
-    --topbar-bg: #ffffff;
-    --topbar-text-color: #1f2328;
-    --search-wrapper-bg: #f6f8fa;
-    --search-wrapper-border-color: #d0d7de;
-    --tag-bg: #f3f4f6;
-    --tag-border: #d0d7de;
-    --timeline-color: #d0d7de;
-    --timeline-node-bg: #0969da;
+    --border-color: #d0d7de;
+    --text-main: #1f2328;
+    --text-muted: #656d76;
+    --heading-color: #000000;
+    --accent-blue: #0969da;
+    --active-link-bg: #ddf4ff; /* Açık mavi yüksek kontrastlı zemin */
   }
 
-  /* 4. GENEL TEMA UYGULAMASI (STİLLER DEĞİŞKENLERE BAĞLANDI) */
+  /* 4. GENEL RENK UYGULAMASI */
   body, #main-wrapper, #topbar-wrapper, #search-result-wrapper {
     background-color: var(--main-bg) !important;
-    color: var(--text-color) !important;
+    color: var(--text-main) !important;
   }
 
   #sidebar {
     background-color: var(--sidebar-bg) !important;
-    border-right: 1px solid var(--sidebar-border-color) !important;
+    border-right: 1px solid var(--border-color) !important;
   }
 
+  /* Sol Menü Linkleri ve Aktif Sekme Düzeltmesi */
   .nav-item .nav-link {
-    color: var(--nav-link-color) !important;
+    color: var(--text-muted) !important;
   }
 
-  .nav-item.active .nav-link {
-    background-color: var(--card-header-bg) !important;
-    color: var(--sidebar-active-color) !important;
+  /* KOYU MOD AKTİF BUTON */
+  html[data-mode="dark"] .nav-item.active .nav-link,
+  html:not([data-mode="light"]) .nav-item.active .nav-link {
+    background-color: #161b22 !important;
+    color: #38bdf8 !important;
+    font-weight: 600 !important;
     border-radius: 8px !important;
   }
 
-  /* Ana Sayfadaki Kartlar (Arşiv Dışındakiler) */
+  /* AÇIK MOD AKTİF BUTON (ARŞİV YAZISINI NET OKUNUR YAPAR) */
+  html[data-mode="light"] .nav-item.active .nav-link {
+    background-color: #ddf4ff !important;
+    color: #0969da !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+  }
+
+  /* Kartlar ve Arama Kutusu */
   #post-list .card, .post-content .card {
     background-color: var(--card-bg) !important;
-    border: 1px solid var(--main-border-color) !important;
+    border: 1px solid var(--border-color) !important;
     border-radius: 12px !important;
     box-shadow: none !important;
   }
 
-  /* Arama Kutusu ve Etiketler */
   #search-input, .search-wrapper {
-    background-color: var(--search-wrapper-bg) !important;
-    border: 1px solid var(--search-wrapper-border-color) !important;
-    color: var(--text-color) !important;
+    background-color: var(--sidebar-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
   }
 
   .tag, .post-tag, #access-tags .tag {
-    background-color: var(--tag-bg) !important;
-    border: 1px solid var(--tag-border) !important;
-    color: var(--text-color) !important;
+    background-color: var(--sidebar-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
     border-radius: 20px !important;
     padding: 4px 12px !important;
   }
 
   a {
-    color: var(--link-color) !important;
+    color: var(--accent-blue) !important;
   }
 
-  /* 5. ARŞİV SAYFASI KUTU & ÇİZGİ DÜZELTMESİ (ÇİZGİYİ KAPATAN ARKA PLAN KALDIRILDI) */
-  #archives li, 
-  #archives .timeline, 
-  #archives .timeline > li, 
-  #archives .timeline > li > a,
-  #archives .timeline .card {
-    background-color: transparent !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
+  /* 5. ARŞİV ZAMAN ÇİZGİSİ VE NOKTA HİZALAMA (KAYMA DÜZELTMESİ) */
+  #archives {
+    position: relative !important;
   }
 
   #archives .timeline {
-    border-left: 2px solid var(--timeline-color) !important;
+    position: relative !important;
+    border-left: 2px solid var(--border-color) !important;
+    margin-left: 4.8rem !important; /* Dikey çizginin sabit yeri */
+    padding-left: 1.5rem !important;
+    list-style: none !important;
   }
 
-  /* Alt Bilgi (Footer) */
+  /* 2026 Yıl Noktasını Dikey Çizginin Tam Üstüne Merkezleme */
+  #archives .year {
+    position: relative !important;
+    margin-left: 0 !important;
+    color: var(--heading-color) !important;
+  }
+
+  #archives .year::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 4.8rem !important; /* Dikey çizgi ile %100 aynı x-koordinatı */
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    border: 2px solid var(--accent-blue) !important;
+    background-color: var(--main-bg) !important;
+    z-index: 5 !important;
+  }
+
+  /* Alt Makale Satırları */
+  #archives .timeline li {
+    background: transparent !important;
+    border: none !important;
+    position: relative !important;
+  }
+
+  /* Alt Makale Noktasını Çizgiye Merkezleme */
+  #archives .timeline li::before {
+    left: -1.5rem !important;
+    transform: translate(-50%, -50%) !important;
+    top: 50% !important;
+    background-color: var(--text-muted) !important;
+  }
+
   footer, #footer, .pb-md-3 {
     background-color: transparent !important;
-    border-top: 1px solid var(--main-border-color) !important;
+    border-top: 1px solid var(--border-color) !important;
     margin-top: 2rem !important;
     padding-top: 1.5rem !important;
   }
