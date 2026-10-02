@@ -9,74 +9,131 @@
   </p>
 </footer>
 
-<!-- Saygiselim.dev Tasarım & İkon Onarım Kodu -->
+<!-- Stil, Tema ve Arşiv Çizgisi Düzeltme Kodu -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-  /* 1. TÜM METİNLERE INTER FONTU */
+  /* 1. INTER FONTU */
   body, h1, h2, h3, h4, h5, h6, p, button, input, select, textarea, .post-title, .site-title, .nav-link {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   }
 
-  /* 2. İKONLARI KORUMA (BOZULAN KUTULARI DÜZELTİR) */
+  /* 2. İKONLARI KORUMA */
   i, .fa, .fas, .far, .fab, .fal, .fad, [class^="fa-"], [class*=" fa-"] {
     font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "FontAwesome" !important;
   }
 
-  /* 3. ZEMİN VE DERİN KOYU TEMA */
-  body, #main-wrapper, #sidebar, #topbar-wrapper, #search-result-wrapper, html {
-    background-color: #0b0d11 !important;
-    color: #c9d1d9 !important;
+  /* 3. KOYU MOD (DARK MODE - saygiselim.dev) */
+  html[data-mode="dark"],
+  html:not([data-mode="light"]) {
+    body, #main-wrapper, #sidebar, #topbar-wrapper, #search-result-wrapper {
+      background-color: #0b0d11 !important;
+      color: #c9d1d9 !important;
+    }
+
+    #sidebar {
+      background-color: #0d0f14 !important;
+      border-right: 1px solid #1e232d !important;
+    }
+
+    .nav-item .nav-link {
+      color: #9198a1 !important;
+    }
+
+    .nav-item.active .nav-link {
+      background-color: #161b22 !important;
+      color: #38bdf8 !important;
+      border-radius: 8px !important;
+    }
+
+    #post-list .card, .card, .card-body {
+      background-color: #12151c !important;
+      border: 1px solid #1e232d !important;
+      border-radius: 12px !important;
+      box-shadow: none !important;
+    }
+
+    #search-input, .search-wrapper {
+      background-color: #12151c !important;
+      border: 1px solid #1e232d !important;
+      color: #f0f6fc !important;
+    }
+
+    .tag, .post-tag, #access-tags .tag {
+      background-color: #161b22 !important;
+      border: 1px solid #30363d !important;
+      color: #e6edf3 !important;
+      border-radius: 20px !important;
+    }
+
+    a {
+      color: #38bdf8 !important;
+    }
   }
 
-  /* Sol Menü Yapısı */
-  #sidebar {
-    background-color: #0d0f14 !important;
-    border-right: 1px solid #1e232d !important;
+  /* 4. AÇIK MOD (LIGHT MODE) TAM DESTEK */
+  html[data-mode="light"] {
+    body, #main-wrapper, #sidebar, #topbar-wrapper, #search-result-wrapper {
+      background-color: #ffffff !important;
+      color: #1c1e21 !important;
+    }
+
+    #sidebar {
+      background-color: #f6f8fa !important;
+      border-right: 1px solid #e1e4e8 !important;
+    }
+
+    .nav-item.active .nav-link {
+      background-color: #eaeef2 !important;
+      color: #0969da !important;
+      border-radius: 8px !important;
+    }
+
+    #post-list .card, .card, .card-body {
+      background-color: #ffffff !important;
+      border: 1px solid #d0d7de !important;
+      border-radius: 12px !important;
+    }
+
+    #search-input, .search-wrapper {
+      background-color: #f6f8fa !important;
+      border: 1px solid #d0d7de !important;
+      color: #1c1e21 !important;
+    }
+
+    .tag, .post-tag, #access-tags .tag {
+      background-color: #f3f4f6 !important;
+      border: 1px solid #d0d7de !important;
+      color: #24292f !important;
+      border-radius: 20px !important;
+    }
+
+    a {
+      color: #0969da !important;
+    }
   }
 
-  .nav-item .nav-link {
-    color: #9198a1 !important;
+  /* 5. ARŞİV ZAMAN ÇİZGİSİ VE NOKTA HİZALAMASI (KAYMA DÜZELTMESİ) */
+  #archives .timeline {
+    border-left: 2px solid #30363d !important;
+    margin-left: 0.75rem !important;
+    padding-left: 1.5rem !important;
   }
 
-  .nav-item.active .nav-link {
-    background-color: #161b22 !important;
-    color: #38bdf8 !important;
-    border-radius: 8px !important;
+  html[data-mode="light"] #archives .timeline {
+    border-left: 2px solid #d0d7de !important;
   }
 
-  /* 4. MAKALE KARTLARI (DÜZGÜN ÇERÇEVELİ KUTULAR) */
-  #post-list .card, .card, .card-body {
-    background-color: #12151c !important;
-    border: 1px solid #1e232d !important;
-    border-radius: 12px !important;
-    box-shadow: none !important;
+  #archives .year {
+    position: relative !important;
+    margin-left: 0 !important;
   }
 
-  /* 5. ALT BİLGİ (FOOTER) ŞEFFAFLAŞTIRMA VE HİZALAMA */
+  /* Alt Bilgi (Footer) */
   footer, #footer, .pb-md-3 {
     background-color: transparent !important;
-    border-top: 1px solid #1e232d !important;
+    border-top: 1px solid rgba(128, 128, 128, 0.2) !important;
     margin-top: 2rem !important;
     padding-top: 1.5rem !important;
-  }
-
-  /* 6. ARAMA KUTUSU VE OVAL ETİKETLER */
-  #search-input {
-    background-color: #12151c !important;
-    border: 1px solid #1e232d !important;
-    color: #f0f6fc !important;
-  }
-
-  .tag, .post-tag, #access-tags .tag {
-    background-color: #161b22 !important;
-    border: 1px solid #30363d !important;
-    color: #e6edf3 !important;
-    border-radius: 20px !important;
-    padding: 4px 12px !important;
-  }
-
-  a {
-    color: #38bdf8 !important;
   }
 </style>
