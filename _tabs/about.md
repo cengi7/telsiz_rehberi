@@ -27,7 +27,7 @@ Telsizlerin kendi ekranı üzerinden erişilen teknik ayarların ne anlama geldi
 * **VOX & POWER:** Sesle gönderme hassasiyeti ve çıkış gücü (High/Low) seçimleri
 
 ### 3. Hızlı ve Güvenli Dosya Arşivi
-Sitemizde paylaşılan tüm orijinal `.exe`, `.rar` ve sürücü dosyaları yüksek hızlı bulut sunucularımızda (`indir.cengizkaya.net`) barındırılır. Kırık linklerle uğraşmadan direkt ve güvenli indirme imkanı sağlanır.
+Sitemizde paylaşılan tüm orijinal `.exe`, `.rar` ve sürücü dosyaları yüksek hızlı bulut sunucularımızda barındırılır. Kırık linklerle uğraşmadan direkt ve güvenli indirme imkanı sağlanır.
 
 ---
 
