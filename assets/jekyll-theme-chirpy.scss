@@ -1,0 +1,64 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main{%- if jekyll.environment == 'production' -%}.bundle{%- endif -%}';
+
+/* =========================================================
+   1. GOOGLE INTER FONT YÜKLEMESİ
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font-family-base) !important;
+  letter-spacing: -0.011em;
+}
+
+/* =========================================================
+   2. SAYGISELIM.DEV TARZI DARK MODE (TAM SİYAH & ÇERÇEVELİ)
+   ========================================================= */
+@mixin dark-custom-colors {
+  --main-bg: #000000 !important;           /* Tam Siyah Arka Plan (Zemin) */
+  --sidebar-bg: #09090b !important;        /* Koyu Gri Sol Menü */
+  --topbar-wrapper-bg: #000000 !important; 
+  
+  --text-color: #d4d4d8 !important;        
+  --text-muted-color: #a1a1aa !important;  
+  --heading-color: #ffffff !important;     
+  
+  --link-color: #38bdf8 !important;        
+  --sidebar-active-color: #ffffff !important;
+  
+  --main-border-color: #1a1a1a !important; /* Çok ince, koyu sınır çizgileri */
+}
+
+/* Karanlık Mod Aktifken Uygula */
+html[data-mode="dark"] {
+  @include dark-custom-colors;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode="light"]) {
+    @include dark-custom-colors;
+  }
+}
+
+/* Kart (Makale Kutuları) ve Buton Tasarımları */
+.card {
+  background-color: #09090b !important;    /* Makale arka planı */
+  border: 1px solid #1a1a1a !important;    /* İnce zarif çerçeve */
+  border-radius: 8px !important;           /* Yuvarlatılmış köşeler */
+  box-shadow: none !important;
+}
+
+.tag:hover {
+  background-color: #1a1a1a !important;
+}
