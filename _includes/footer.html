@@ -9,20 +9,21 @@
   </p>
 </footer>
 
-<!-- Temiz Tema, Font ve Kusursuz Arşiv Hizalama Kodu -->
+<!-- Tam Uyumlu Tema, Yüksek Kontrast Metin ve Arşiv Hizalama Kodu -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-  /* 1. INTER FONTU & İKON KORUMA */
-  body, h1, h2, h3, h4, h5, h6, p, button, input, select, textarea, .post-title, .site-title, .nav-link, .title {
+  /* 1. TÜM METİNLERE INTER FONTU */
+  body, h1, h2, h3, h4, h5, h6, p, button, input, select, textarea, .post-title, .site-title, .nav-link, .title, article {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   }
 
+  /* 2. İKON SİSTEMİNİ KORUMA */
   i, .fa, .fas, .far, .fab, .fal, .fad, [class^="fa-"], [class*=" fa-"] {
     font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "FontAwesome" !important;
   }
 
-  /* 2. KOYU MOD (DARK MODE - saygiselim.dev) */
+  /* 3. KOYU MOD (DARK MODE - saygiselim.dev) */
   html[data-mode="dark"],
   html:not([data-mode="light"]) {
     --main-bg: #0b0d11;
@@ -33,128 +34,137 @@
     --text-muted: #8b949e;
     --heading-color: #f0f6fc;
     --accent-blue: #38bdf8;
-    --active-link-bg: #161b22;
   }
 
-  /* 3. AÇIK MOD (LIGHT MODE - TEMİZ BEYAZ & YÜKSEK KONTRAST) */
-  html[data-mode="light"] {
-    --main-bg: #ffffff;
-    --sidebar-bg: #f6f8fa;
-    --card-bg: #ffffff;
-    --border-color: #d0d7de;
-    --text-main: #1f2328;
-    --text-muted: #656d76;
-    --heading-color: #000000;
-    --accent-blue: #0969da;
-    --active-link-bg: #ddf4ff; /* Açık mavi yüksek kontrastlı zemin */
+  html[data-mode="dark"] body,
+  html:not([data-mode="light"]) body,
+  html[data-mode="dark"] p,
+  html[data-mode="dark"] .post-content,
+  html[data-mode="dark"] li {
+    background-color: #0b0d11 !important;
+    color: #c9d1d9 !important;
   }
 
-  /* 4. GENEL RENK UYGULAMASI */
-  body, #main-wrapper, #topbar-wrapper, #search-result-wrapper {
-    background-color: var(--main-bg) !important;
-    color: var(--text-main) !important;
+  html[data-mode="dark"] #sidebar {
+    background-color: #0d0f14 !important;
+    border-right: 1px solid #1e232d !important;
   }
 
-  #sidebar {
-    background-color: var(--sidebar-bg) !important;
-    border-right: 1px solid var(--border-color) !important;
-  }
-
-  /* Sol Menü Linkleri ve Aktif Sekme Düzeltmesi */
-  .nav-item .nav-link {
-    color: var(--text-muted) !important;
-  }
-
-  /* KOYU MOD AKTİF BUTON */
-  html[data-mode="dark"] .nav-item.active .nav-link,
-  html:not([data-mode="light"]) .nav-item.active .nav-link {
+  html[data-mode="dark"] .nav-item.active .nav-link {
     background-color: #161b22 !important;
     color: #38bdf8 !important;
     font-weight: 600 !important;
     border-radius: 8px !important;
   }
 
-  /* AÇIK MOD AKTİF BUTON (ARŞİV YAZISINI NET OKUNUR YAPAR) */
-  html[data-mode="light"] .nav-item.active .nav-link {
-    background-color: #ddf4ff !important;
-    color: #0969da !important;
+  html[data-mode="dark"] #post-list .card, 
+  html[data-mode="dark"] .post-content .card {
+    background-color: #12151c !important;
+    border: 1px solid #1e232d !important;
+    border-radius: 12px !important;
+  }
+
+  /* 4. AÇIK MOD (LIGHT MODE - YÜKSEK KONTRAST BEYAZ VE KESKİN METİNLER) */
+  html[data-mode="light"] {
+    --main-bg: #ffffff;
+    --sidebar-bg: #f6f8fa;
+    --card-bg: #ffffff;
+    --border-color: #d0d7de;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --heading-color: #000000;
+    --accent-blue: #0284c7;
+  }
+
+  html[data-mode="light"] body,
+  html[data-mode="light"] #main-wrapper,
+  html[data-mode="light"] #topbar-wrapper,
+  html[data-mode="light"] #search-result-wrapper {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  /* Açık Mod Gövde Metinleri (P, LI, Makale İçeriği Keskin Siyah/Kömür) */
+  html[data-mode="light"] p,
+  html[data-mode="light"] li,
+  html[data-mode="light"] article,
+  html[data-mode="light"] .post-content,
+  html[data-mode="light"] .post-content p,
+  html[data-mode="light"] .post-content li,
+  html[data-mode="light"] .post-desc {
+    color: #1e293b !important; /* Çok koyu ve net gri/siyah */
+    font-weight: 450 !important;
+  }
+
+  html[data-mode="light"] h1,
+  html[data-mode="light"] h2,
+  html[data-mode="light"] h3,
+  html[data-mode="light"] h4,
+  html[data-mode="light"] .post-title,
+  html[data-mode="light"] .site-title {
+    color: #0f172a !important;
     font-weight: 700 !important;
+  }
+
+  html[data-mode="light"] #sidebar {
+    background-color: #f8fafc !important;
+    border-right: 1px solid #e2e8f0 !important;
+  }
+
+  /* Açık Mod Sol Menü Aktif Buton (ARŞİV Butonunu Koyu Mavi Üzerine Beyaz Yazı Yapar) */
+  html[data-mode="light"] .nav-item.active .nav-link {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
     border-radius: 8px !important;
   }
 
-  /* Kartlar ve Arama Kutusu */
-  #post-list .card, .post-content .card {
-    background-color: var(--card-bg) !important;
-    border: 1px solid var(--border-color) !important;
+  html[data-mode="light"] .nav-item .nav-link {
+    color: #334155 !important;
+  }
+
+  html[data-mode="light"] #post-list .card, 
+  html[data-mode="light"] .post-content .card {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
     border-radius: 12px !important;
-    box-shadow: none !important;
   }
 
-  #search-input, .search-wrapper {
-    background-color: var(--sidebar-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--text-main) !important;
+  html[data-mode="light"] #search-input, 
+  html[data-mode="light"] .search-wrapper {
+    background-color: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
   }
 
-  .tag, .post-tag, #access-tags .tag {
-    background-color: var(--sidebar-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--text-main) !important;
-    border-radius: 20px !important;
-    padding: 4px 12px !important;
-  }
-
-  a {
-    color: var(--accent-blue) !important;
-  }
-
-  /* 5. ARŞİV ZAMAN ÇİZGİSİ VE NOKTA HİZALAMA (KAYMA DÜZELTMESİ) */
-  #archives {
-    position: relative !important;
-  }
-
+  /* 5. ARŞİV CETVELİ VE ÇİFT NOKTA TEMİZLEME */
   #archives .timeline {
-    position: relative !important;
     border-left: 2px solid var(--border-color) !important;
-    margin-left: 4.8rem !important; /* Dikey çizginin sabit yeri */
+    margin-left: 1.5rem !important;
     padding-left: 1.5rem !important;
     list-style: none !important;
   }
 
-  /* 2026 Yıl Noktasını Dikey Çizginin Tam Üstüne Merkezleme */
+  /* Çift noktayı engellemek için extra pseudo elemanları temizle */
+  #archives .year::before,
+  #archives .year::after {
+    display: none !important;
+  }
+
   #archives .year {
     position: relative !important;
-    margin-left: 0 !important;
+    font-weight: 700 !important;
     color: var(--heading-color) !important;
   }
 
-  #archives .year::before {
-    content: "" !important;
-    position: absolute !important;
-    left: 4.8rem !important; /* Dikey çizgi ile %100 aynı x-koordinatı */
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 12px !important;
-    height: 12px !important;
-    border-radius: 50% !important;
-    border: 2px solid var(--accent-blue) !important;
-    background-color: var(--main-bg) !important;
-    z-index: 5 !important;
-  }
-
-  /* Alt Makale Satırları */
   #archives .timeline li {
     background: transparent !important;
     border: none !important;
-    position: relative !important;
   }
 
-  /* Alt Makale Noktasını Çizgiye Merkezleme */
-  #archives .timeline li::before {
-    left: -1.5rem !important;
-    transform: translate(-50%, -50%) !important;
-    top: 50% !important;
-    background-color: var(--text-muted) !important;
+  .tag, .post-tag, #access-tags .tag {
+    border-radius: 20px !important;
+    padding: 4px 12px !important;
   }
 
   footer, #footer, .pb-md-3 {
