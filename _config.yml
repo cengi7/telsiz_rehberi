@@ -76,7 +76,7 @@ theme_mode:
 cdn:
 
 # Sol menüdeki avatar / profil resmi (Assets klasörüne ekleyeceğiniz resim yolu)
-avatar: /assets/img/avatar.png
+#avatar: /assets/img/avatar.png
 
 # SEO sosyal medya önizleme görseli
 social_preview_image:
