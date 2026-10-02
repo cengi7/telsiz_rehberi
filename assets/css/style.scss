@@ -3,10 +3,11 @@
 
 @import "main";
 
-/* Google Inter Font Yükleme */
+/* =========================================================
+   1. GOOGLE INTER FONT YÜKLEMESİ
+   ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Tema Font Değişkenlerini Ezme */
 :root {
   --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -14,4 +15,54 @@
 body {
   font-family: var(--font-family-base) !important;
   letter-spacing: -0.011em;
+}
+
+
+/* =========================================================
+   2. SAYGISELIM.DEV TARZI MODERN KOYU TEMA (DARK MODE)
+   ========================================================= */
+@mixin dark-custom-colors {
+  /* Arka Planlar */
+  --main-bg: #111111 !important;           /* Ana arka plan (Tam Siyah yerine zarif koyu gri/siyah) */
+  --sidebar-bg: #161616 !important;        /* Sol menü arka planı */
+  --topbar-wrapper-bg: #111111 !important; /* Mobil üst bar */
+  
+  /* Metin ve Başlık Renkleri */
+  --text-color: #d4d4d8 !important;        /* Okunabilir, göz yormayan açık gri metin */
+  --text-muted-color: #a1a1aa !important;  /* Sönük metinler (Tarih, etiket vs.) */
+  --heading-color: #f4f4f5 !important;     /* Başlıklar (Beyaza çok yakın parlak gri) */
+  
+  /* Link ve Vurgu Renkleri */
+  --link-color: #38bdf8 !important;        /* Modern açık mavi */
+  --link-underline-color: rgba(56, 189, 248, 0.4) !important;
+  --sidebar-active-color: #ffffff !important;
+  
+  /* Kenarlık (Border) ve Çizgiler */
+  --main-border-color: #27272a !important; 
+}
+
+/* Karanlık Mod Değişkenlerini Zorla Uygula */
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode="light"]) {
+    @include dark-custom-colors;
+  }
+}
+
+html[data-mode="dark"] {
+  @include dark-custom-colors;
+}
+
+/* =========================================================
+   3. KART VE PANEL TASARIMLARI (Çerçeveli Yapı)
+   ========================================================= */
+.card {
+  background-color: #161616 !important;    /* Kart içi arka planı */
+  border: 1px solid #27272a !important;    /* Saygiselim.dev tarzı ince zarif kenarlık */
+  border-radius: 12px !important;          /* Modern yuvarlatılmış köşeler */
+  box-shadow: none !important;             /* Kaba gölgeleri kaldırma */
+}
+
+/* Etiket (Tag) ve Kategori Butonları */
+.tag:hover {
+  background-color: #27272a !important;
 }
