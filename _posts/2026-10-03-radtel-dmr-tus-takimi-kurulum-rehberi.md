@@ -5,7 +5,7 @@ categories: [Telsiz Kurulum Rehberleri, Radtel]
 tags: [dmr, radtel, kurulum, fpp, manuel]
 ---
 
-Bu belge, Radtel RT-4 ve benzeri DMR telsizlerde, bilgisayara ihtiyaç duymadan cihazın kendi ön paneli ve tuş takımı (FPP - Front Panel Programming) kullanılarak dijital kanal (Talkgroup) ekleme ve kaydetme işlemlerini adım adım anlatmaktadır.
+Bu belge, Radtel RT-4D ve benzeri DMR telsizlerde, bilgisayara ihtiyaç duymadan cihazın kendi ön paneli ve tuş takımı (FPP - Front Panel Programming) kullanılarak dijital kanal (Talkgroup) ekleme ve kaydetme işlemlerini adım adım anlatmaktadır.
 
 ## Adım 1: DMR ID'nizi Cihaza Tanıtın
 * Telsiz menüsüne girin ve Dijital Set bölümünü seçin.
